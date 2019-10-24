@@ -83,7 +83,7 @@ export class LayoutComponent implements OnInit {
   showDetails(row) {
     const data = row;
     const dialogRef = this.dialog.open(EmployeeDialogComponent, {
-      data: { key: 'edit', data: data },
+      data: { key: 'view', data: data },
       width: '500px',
       height: '800px',
     });
@@ -91,10 +91,20 @@ export class LayoutComponent implements OnInit {
 
   }
   editItem(row) {
+    const data = row;
+    const dialogRef = this.dialog.open(EmployeeDialogComponent, {
+      data: { key: 'edit', data: data },
+      width: '500px',
+      height: '800px',
+    });
     console.log(row);
   }
   deleteItem(row) {
     console.log(row);
+    let r = confirm("Are you sure to delete this data ? ");
+    if (r == true) {
+      alert('data has been deleted');
+    } 
   }
   formatDate(date) {
     var monthNames = [

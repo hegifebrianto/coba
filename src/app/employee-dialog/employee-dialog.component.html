@@ -107,7 +107,8 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button type="button" *ngIf="data.key==='edit'" (click)="onNoClick()" mat-raised-button color="primary">OK</button>
+    <button type="button" *ngIf="data.key==='view'" (click)="onNoClick()" mat-raised-button color="primary">OK</button>
+    <button type="button" *ngIf="data.key==='edit'" [disabled]="!employeForm.valid" mat-raised-button color="primary" (click)="edit()">edit</button>
 
     <button type="button" *ngIf="data.key==='save'" [disabled]="!employeForm.valid" mat-raised-button color="primary" (click)="save()">Save</button>
 

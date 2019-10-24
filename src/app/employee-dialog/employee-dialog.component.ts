@@ -40,6 +40,12 @@ export class EmployeeDialogComponent implements OnInit {
       this.markFormGroupTouched(this.employeForm);
       this.employeForm.updateValueAndValidity();
     }
+    if (this.data.key === 'view') {
+      this.employeForm.disable();
+      this.employeForm.patchValue({
+        basicSalary:'Rp '+row.basicSalary.toString()
+      })
+    }
 
   }
   private markFormGroupTouched(formGroup: FormGroup) {
@@ -53,6 +59,11 @@ export class EmployeeDialogComponent implements OnInit {
   }
 
   save() {
+    alert('data has been saved');
+    this.dialogRef.close();
+  }
+  edit() {
+    alert('data has been edited');
     this.dialogRef.close();
   }
   createform() {

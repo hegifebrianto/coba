@@ -51,8 +51,13 @@ this.router.navigate(['/userdetails']);
       username : this.loginForm.getRawValue().username,
       password : this.loginForm.getRawValue().password
     };
-    console.log(payload);
-    this.router.navigate(['/layout']);
+    if(payload.username === 'admin' && payload.password ==='password') {
+      this.router.navigate(['/layout']);
+    } else {
+      alert('username or password wrong !!!');
+    }
+
+    
 
 
     // this.authService.login(payload).subscribe(

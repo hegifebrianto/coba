@@ -1,7 +1,10 @@
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
-<button type="button" class="btn btn-primary" data-toggle="modal" (click)="openDialog()"> (+) Tambah data</button>
+<button type="button" mat-raised-button class="full-width" color="primary" (click)="openDialog()" style="float: right;margin-top: 10px">
+    (+) Tambah data
+</button>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" (click)="openDialog()"> (+) Tambah data</button> -->
 
 
 
