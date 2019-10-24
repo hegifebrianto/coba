@@ -1,0 +1,81 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<button type="button" class="btn btn-primary" data-toggle="modal" (click)="openDialog()"> (+) Tambah data</button>
+
+
+
+
+
+
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- Progress Column -->
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> username </th>
+            <td mat-cell *matCellDef="let row"> {{row.username}} </td>
+        </ng-container>
+
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> firstName </th>
+            <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> lastName </th>
+            <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.email}} </td>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="birthDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> birthDate </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.birthDate}} </td>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="basicSalary">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> basicSalary </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.basicSalary}} </td>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.status}} </td>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="group">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> group </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.group}} </td>
+        </ng-container>
+        <!-- Color Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-button (click)="showDetails(row)">DETAILS</button>
+                <button mat-button (click)="editItem(row)">EDIT</button>
+                <button mat-button (click)="deleteItem(row)">DELETE</button>
+            </mat-cell>
+        </ng-container>
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

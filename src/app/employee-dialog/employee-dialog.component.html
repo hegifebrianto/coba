@@ -1,0 +1,115 @@
+<h1 mat-dialog-title>Hi test</h1>
+<div mat-dialog-content>
+
+
+
+
+
+
+
+
+
+
+
+    <!--     
+    birthDate
+    basicSalary
+    status
+    group
+    description -->
+    <form [formGroup]="employeForm">
+        <div class="form-group">
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="userName" name="userName" formControlName="userName">
+                    <mat-error>userName is mandatory</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="firstName" name="firstName" formControlName="firstName">
+                    <mat-error>firstName is mandatory</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="lastName" name="lastName" formControlName="lastName">
+                    <mat-error>lastName is mandatory</mat-error>
+
+                </mat-form-field>
+            </div>
+
+
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="email" class="text-uppercase" name="email" formControlName="email" #email pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                    <mat-error *ngIf="employeForm.get('email').hasError('required')">email is mandatory</mat-error>
+                    <mat-error *ngIf="employeForm.get('email').hasError('pattern') ">Please enter valid email address </mat-error>
+
+                    <!-- <input matInput placeholder="email" name="email" formControlName="email" pattern="^[a-zA-Z0-9]*$"> -->
+                    <!-- <mat-error *ngIf="employeForm.get['email'].hasError('required') ">email is mandatory</mat-error> -->
+                    <!-- <mat-error *ngIf="employeForm.get['email'].hasError('pattern') ">Please enter valid email address </mat-error> -->
+
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput [matDatepicker]="birthDateDatePicker" placeholder="birthDate" name="birthDateDatePicker" formControlName="birthDate" readonly required>
+                    <mat-datepicker-toggle matSuffix [for]="birthDateDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #birthDateDatePicker disabled="false"></mat-datepicker>
+                    <mat-error *ngIf="employeForm.get('birthDate').hasError('required')">birth date is mandatory
+                    </mat-error>
+                    <!-- <input matInput placeholder="description" name="description" formControlName="description"> -->
+                </mat-form-field>
+
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="basicSalary" name="basicSalary" pattern="^[0-9]*$" formControlName="basicSalary">
+                    <mat-error *ngIf="employeForm.get('basicSalary').hasError('required')">basicSalary is mandatory</mat-error>
+                    <mat-error *ngIf="employeForm.get('basicSalary').hasError('pattern') ">Only Numeric </mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="status" name="status" formControlName="status">
+                    <mat-error>status is mandatory</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="group" name="group" formControlName="group">
+                    <mat-error>group is mandatory</mat-error>
+
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                    <input matInput [matDatepicker]="descriptionDatePicker" placeholder="description" name="descriptionDatePicker" formControlName="description" readonly required>
+                    <mat-datepicker-toggle matSuffix [for]="descriptionDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #descriptionDatePicker disabled="false"></mat-datepicker>
+                    <mat-error *ngIf="employeForm.get('description').hasError('required')">description is mandatory
+                    </mat-error>
+                    <!-- <input matInput placeholder="description" name="description" formControlName="description"> -->
+                </mat-form-field>
+            </div>
+
+
+
+        </div>
+    </form>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button type="button" *ngIf="data.key==='edit'" (click)="onNoClick()" mat-raised-button color="primary">OK</button>
+
+    <button type="button" *ngIf="data.key==='save'" [disabled]="!employeForm.valid" mat-raised-button color="primary" (click)="save()">Save</button>
+
+    <!-- <button mat-button[ mat-dialog-close]="" cdkFocusInitial>Ok</button> -->
+</div>
