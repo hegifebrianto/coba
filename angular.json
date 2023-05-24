@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "coba"
+  "defaultProject": "coba",
+  "cli": {
+    "analytics": "4ba0f2aa-7873-44ec-9a7b-d0b2f1274289"
+  }
 }
