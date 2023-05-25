@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    
+
     private router: Router,
 
   ) { }
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   ngOnInit() {
-    
+
     this.createForm();
   }
   createForm() {
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     });
   }
   actionButton() {
-this.router.navigate(['/userdetails']);
+    this.router.navigate(['/userdetails']);
 
   }
   test(status) {
@@ -48,16 +48,16 @@ this.router.navigate(['/userdetails']);
   }
   loginFunct() {
     const payload = {
-      username : this.loginForm.getRawValue().username,
-      password : this.loginForm.getRawValue().password
+      username: this.loginForm.getRawValue().username,
+      password: this.loginForm.getRawValue().password
     };
-    if(payload.username === 'admin' && payload.password ==='password') {
-      this.router.navigate(['/layout']);
+    if (payload.username === 'admin' && payload.password === 'password') {
+      this.router.navigate(['/dashboard']);
     } else {
       alert('username or password wrong !!!');
     }
 
-    
+
 
 
     // this.authService.login(payload).subscribe(

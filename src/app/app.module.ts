@@ -11,6 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material-module';
 import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
 import { MatDatepickerModule } from '@angular/material';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GraphComponent } from './graph/graph.component';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,9 @@ import { MatDatepickerModule } from '@angular/material';
     AppComponent,
     LayoutComponent,
     LoginComponent,
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    DashboardComponent,
+    GraphComponent
   ],
   entryComponents: [EmployeeDialogComponent],
 
@@ -29,10 +36,13 @@ import { MatDatepickerModule } from '@angular/material';
     DemoMaterialModule,
     MatDatepickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule,
+    HttpClientModule,
+
 
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
