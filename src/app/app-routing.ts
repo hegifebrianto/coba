@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphComponent } from './graph/graph.component';
+import { EditorComponent } from './editor/editor.component';
 
 
 export const routes: Routes = [
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'graph',
     component: GraphComponent,
+  },
+  {
+    path: 'editor',
+    component: EditorComponent,
   },
 ];
 

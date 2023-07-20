@@ -76,12 +76,7 @@ export class EmployeeDialogComponent implements OnInit {
       basicSalary: ['', Validators.required],
       status: ['', Validators.required],
       group: ['', Validators.required],
-      description: ['', Validators.required],
-
-
+      description: ['', Validators.required]
     });
-
   }
-
-
 }
